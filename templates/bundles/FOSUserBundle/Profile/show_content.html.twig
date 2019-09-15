@@ -1,0 +1,37 @@
+{% trans_default_domain 'FOSUserBundle' %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="jumbotron">
+                        <h4>Hello, world!</h4>
+                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <hr class="my-4">
+                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <a class="btn btn-success" href="#" role="button">Télécharger le PDF</a>
+                        <a class="btn btn-danger" href="#" role="button">Annuler la réservation</a>
+                    </div>
+                </div>
+                <div class="offset-md-1 col-md-3">
+                    <div class="jumbotron">
+                        <h4>Mes infos</h4>
+                        <hr class="my-4">
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                        <hr class="my-4">
+                        <p><strong>Téléphone:</strong> {{ user.phone }}</p>
+                        <p><strong>Date de naissance:</strong> {{ user.birthdate | date("d/m/Y") }}</p>
+                        <hr class="my-4">
+                        <p><strong>Adresse:</strong> {{ user.address }}</p>
+                        <p>{{ user.postalCode }} {{ user.city }}</p>
+                        <p>{{ user.country }}</p>
+
+                        <a class="btn btn-success" href="{{ path ('fos_user_profile_edit') }}" role="button">Modifier profil</a>
+                        <a class="btn btn-secondary mt-2 mb-2" href="{{ path ('fos_user_change_password') }}" role="button">Changer mon mot de passe</a>
+                        <a class="btn btn-danger btn-sm" href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+

@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        {# Required meta tags #}
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<head>
+    {# Required meta tags #}
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
-        {# Onglet #}
-        <link rel="icon" href="{{ asset ('assets/img/logo-02.png') }}" type="image/png">
-        <title>{% block title %}Camping la Jamonière{% endblock %}</title>
+    {# Onglet #}
+    <link rel="icon" href="{{ asset ('assets/img/logo-02.png') }}" type="image/png">
+    <title>{% block title %}Camping la Jamonière{% endblock %}</title>
 
-        {# TYPO #}
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-              rel="stylesheet">
+    {# TYPO #}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+          rel="stylesheet">
 
-        {# Bootstrap #}
-        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    {# Bootstrap #}
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 
-        {# MON CSS #}
-        <link href="{{ asset ('assets/css/styleBase.css') }}" rel="stylesheet" type="text/css">
+    {# MON CSS #}
+    <link href="{{ asset ('assets/css/styleBase.css') }}" rel="stylesheet" type="text/css">
 
-        {# META INFORMATIFS #}
-        <meta name="author" content="Estelle DENAGE">
-        <meta name="description" content="Site du Camping de la Jamonière en Vendée à Mervent">
+    {# META INFORMATIFS #}
+    <meta name="author" content="Estelle DENAGE">
+    <meta name="description" content="Site du Camping de la Jamonière en Vendée à Mervent">
 
-        {% block stylesheets %}{% endblock %}
-    </head>
+    {% block stylesheets %}{% endblock %}
+</head>
 
 <body>
 <div class="wrap stickyfooter">
@@ -34,7 +34,23 @@
         {% block header %}
             <div class="header d-md-block d-none mb-md-5">
                 {# SVG #} {# CACHE POUR LA WAVE #}
-                <svg class="mt-5" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1264.27 162.13"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#e5baad;opacity:0.5;}</style></defs><title>Capture d’écran 2019-08-15 à 03.33.38</title><path class="cls-1" d="M0,54.07S61.89,176.8,224.09,146.76L1264.27,0V162.13L0,162.08Z"/><path class="cls-2" d="M0,54.68s46.8,88.2,156.49,96.12a246.5,246.5,0,0,0,29.19.54s-54.9,13.13-111.59-16.71S0,72.58,0,72.58Z"/></svg>
+                <svg class="mt-5" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 1264.27 162.13">
+                    <defs>
+                        <style>.cls-1 {
+                                fill: #fff;
+                            }
+
+                            .cls-2 {
+                                fill: #e5baad;
+                                opacity: 0.5;
+                            }</style>
+                    </defs>
+                    <title>Capture d’écran 2019-08-15 à 03.33.38</title>
+                    <path class="cls-1" d="M0,54.07S61.89,176.8,224.09,146.76L1264.27,0V162.13L0,162.08Z"/>
+                    <path class="cls-2"
+                          d="M0,54.68s46.8,88.2,156.49,96.12a246.5,246.5,0,0,0,29.19.54s-54.9,13.13-111.59-16.71S0,72.58,0,72.58Z"/>
+                </svg>
                 {# /SVG #} {# /CACHE POUR LA WAVE #}
             </div>
         {% endblock %}
@@ -42,8 +58,12 @@
         {# Navbar #}
         <nav class="navbar navbar-expand-md navbar-dark gradientnavbar absolutenavbar textnav" id="mainNav">
 
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">{#<img src="../public/assets/img/logo-02.png" alt="logo" class="img-fluid" style="height: 50px;">#}Camping la Jamonière</a>
-            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand js-scroll-trigger"
+               href="{{ path('Accueil') }}">{#<img src="../public/assets/img/logo-02.png" alt="logo" class="img-fluid" style="height: 50px;">#}
+                Camping la Jamonière</a>
+            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -58,7 +78,8 @@
                         <a class="nav-link js-scroll-trigger text-white" href="{{ path('Proximité') }}">A proximité</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tarifs
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -72,8 +93,22 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger text-white" href="{{ path ('Contact') }}">Contact</a>
                     </li>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger text-white"
+                               href="{{ path ('fos_user_profile_show') }}">Mon
+                                profil</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger text-white"
+                               href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
-                        <button type="button" class="btn p-0 btn-default"><a class="nav-link js-scroll-trigger text-white" href="{{ path ('Choix') }}">RÉSERVER</a></button>
+                        <button type="button" class="btn p-0 btn-default"><a
+                                    class="nav-link js-scroll-trigger text-white"
+                                    href="{{ path ('Choix') }}">RÉSERVER</a></button>
                     </li>
                 </ul>
             </div>
@@ -82,7 +117,21 @@
     </header>
     {#/HEADER#}
 
-    {% block main %}{% endblock %}
+    {% block main %}
+        {#FOSUser message#}
+        {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="container">
+                        <div class="alert alert-success flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        {% block fos_user_content %}{% endblock fos_user_content %}
+    {% endblock %}
 
 
     {#FOOTER#}
@@ -140,20 +189,20 @@
 </div>
 
 
-    {#Jquery#}
+{#Jquery#}
 
-    <script src="https://kit.fontawesome.com/75abba9047.js"></script>
-    <script crossorigin="anonymous"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script crossorigin="anonymous"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script crossorigin="anonymous"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    {% block javascripts %}{% endblock %}
-    {#Jquery#}
+<script src="https://kit.fontawesome.com/75abba9047.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% block javascripts %}{% endblock %}
+{#Jquery#}
 
 </body>
 </html>
