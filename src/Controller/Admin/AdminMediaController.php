@@ -79,10 +79,14 @@ class AdminMediaController extends AbstractController
         $form = $this->createForm(MediaType::class, $media);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            /*if($media->getImageFile() instanceof UploadedFile){
+        /*//Tu récupères les données du formulaire
+                $lastFile = $media->getImageFile();
+        //là si le champ file est a nul tu lui remets l'ancienne valeur que tu as mis dans une variable avant la récupération des données du formulaire
+                if($form['imageFile']->getData() == null) {
+                    $media->setImageFile($lastFile);
+                }*/
 
-            }*/
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
             return $this->redirectToRoute('listeMedia');
         }

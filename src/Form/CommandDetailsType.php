@@ -16,16 +16,10 @@ class CommandDetailsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('price')
-            ->add('date')
             ->add('reservation_start')
             ->add('reservation_end')
-            ->add('discount', IntegerType::class)
             ->add('commandDetailsHasOption', EntityType::class, [
                 'class' => CommandDetailsHasOption::class])
-            ->add('Category_has_season', EntityType::class, [
-                'class' => CategoryHasSeason::class
-            ])
         ;
     }
 

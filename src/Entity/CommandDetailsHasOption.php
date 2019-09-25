@@ -25,7 +25,9 @@ class CommandDetailsHasOption
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Option", inversedBy="Option_CommandDetails_has_option", fetch="EAGER")
-     *
+     * @var string
+     * @param string $Options
+     * @return CommandDetailsHasOption
      */
     public $Options;
 
@@ -97,5 +99,16 @@ class CommandDetailsHasOption
         }
 
         return $this;
+    }
+
+    /*public function __toString(){
+        // to show the name of the Category in the select
+        return $this->Options;
+        // to show the id of the Category in the select
+        // return $this->id;
+    }*/
+
+    public function __toString(): ?string {
+        return $this->Options;
     }
 }

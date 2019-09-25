@@ -1,6 +1,7 @@
-*{font-family: 'Poppins', sans-serif;} /* Typo importée avec google font et appelée dans le document */
+/*
+*{font-family: 'Poppins', sans-serif;} !* Typo importée avec google font et appelée dans le document *!
 
-/* DATE RANGE PICKER CSS*/
+!* DATE RANGE PICKER CSS*!
 
 .daterangepicker {
     position: absolute;
@@ -350,7 +351,7 @@
     color: #fff;
 }
 
-/*  Larger Screen Styling */
+!*  Larger Screen Styling *!
 @media (min-width: 564px) {
     .daterangepicker {
         width: auto;
@@ -425,18 +426,18 @@
     }
 }
 
-/* DATE RANGE PICKER CSS*/
+!* DATE RANGE PICKER CSS*!
 
-/* MODIFS DE LA DATE RANGE PICKER */
+!* MODIFS DE LA DATE RANGE PICKER *!
 
 .icon-calendar{margin-top: 1%;}
 
 
 
 
-/* Bouton recherche */
+!* Bouton recherche *!
 
-.rechercher{ /* LIÉ À .BUTTON LIGNE 627*/
+.rechercher{ !* LIÉ À .BUTTON LIGNE 627*!
     height: 70%;
     width: 100%;
     background-color: forestgreen;
@@ -446,7 +447,9 @@
     .rechercher{height: 100%;}
 }
 
-/* Vignettes d'emplacements */
+ */
+
+/* Vignettes d'emplacements*/
 
 
 .imgthumnail {
@@ -482,4 +485,15 @@
 .thumbnail:hover {
     box-shadow: 0 0 20px rgba(33,33,33,.2);
 }
+.cartes{
+    flex: 0 0 32.333333%;
+    max-width: 32.333333%;
+    margin: 5px 10px 5px 0 ;
+}
 
+@media screen and (max-width: 768px){
+    .cartes{
+        flex: 0 0 95%;
+        max-width: 95%;
+    }
+}

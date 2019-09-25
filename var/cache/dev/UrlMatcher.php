@@ -113,6 +113,10 @@ return [
                     .'|gister/confirm/([^/]++)(*:595)'
                     .'|setting/reset/([^/]++)(*:625)'
                 .')'
+                .'|/media/cache/resolve/(?'
+                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:688)'
+                    .'|([A-z0-9_-]*)/(.+)(*:714)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -156,8 +160,10 @@ return [
         522 => [[['_route' => 'admin.resa.delete', '_controller' => 'App\\Controller\\Admin\\HomeController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
         557 => [[['_route' => 'resa.annulation', '_controller' => 'App\\Controller\\Admin\\HomeController::Annulation'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         595 => [[['_route' => 'fos_user_registration_confirm', '_controller' => 'fos_user.registration.controller:confirmAction'], ['token'], ['GET' => 0], null, false, true, null]],
-        625 => [
-            [['_route' => 'fos_user_resetting_reset', '_controller' => 'fos_user.resetting.controller:resetAction'], ['token'], ['GET' => 0, 'POST' => 1], null, false, true, null],
+        625 => [[['_route' => 'fos_user_resetting_reset', '_controller' => 'fos_user.resetting.controller:resetAction'], ['token'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        688 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        714 => [
+            [['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

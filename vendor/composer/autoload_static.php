@@ -120,6 +120,10 @@ class ComposerStaticInit55c3b4c61b5520ea49d743dbbe8d6cb0
         array (
             'Monolog\\' => 8,
         ),
+        'L' => 
+        array (
+            'Liip\\ImagineBundle\\' => 19,
+        ),
         'F' => 
         array (
             'Fig\\Link\\' => 9,
@@ -468,6 +472,10 @@ class ComposerStaticInit55c3b4c61b5520ea49d743dbbe8d6cb0
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Liip\\ImagineBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/liip/imagine-bundle',
+        ),
         'Fig\\Link\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
@@ -573,6 +581,13 @@ class ComposerStaticInit55c3b4c61b5520ea49d743dbbe8d6cb0
             'Metadata\\' => 
             array (
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
+            ),
+        ),
+        'I' => 
+        array (
+            'Imagine' => 
+            array (
+                0 => __DIR__ . '/..' . '/imagine/imagine/lib',
             ),
         ),
         'B' => 

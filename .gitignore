@@ -2,3 +2,6 @@
 var/cache/*
 /.idea/
 .idea/workspace.xml
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

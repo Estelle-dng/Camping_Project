@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
 
+
 class AdminCategoryController extends AbstractController
 {
 
@@ -76,6 +77,7 @@ class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { /* Si le form est envoyé et valide */
+
             $this->em->flush();
             $this->addFlash('success','Information modifiée avec succès');
             /* Si l'update est un succes on affiche ce message */
