@@ -19,27 +19,27 @@ return [
         '/admin/listediscount/create' => [[['_route' => 'admin.listediscount.create', '_controller' => 'App\\Controller\\Admin\\AdminDiscountController::create'], null, null, null, false, false, null]],
         '/admin/listefaq' => [[['_route' => 'listeFAQ', '_controller' => 'App\\Controller\\Admin\\AdminFaqController::listefaq'], null, null, null, false, false, null]],
         '/admin/listefaq/create' => [[['_route' => 'admin.listefaq.create', '_controller' => 'App\\Controller\\Admin\\AdminFaqController::create'], null, null, null, false, false, null]],
-        '/FAQ' => [[['_route' => 'FAQ', '_controller' => 'App\\Controller\\Admin\\AdminFaqController::Faq'], null, null, null, false, false, null]],
         '/admin/listemedia' => [[['_route' => 'listeMedia', '_controller' => 'App\\Controller\\Admin\\AdminMediaController::listemedia'], null, null, null, false, false, null]],
         '/admin/listemedia/create' => [[['_route' => 'admin.listemedia.create', '_controller' => 'App\\Controller\\Admin\\AdminMediaController::create'], null, null, null, false, false, null]],
         '/admin/listeOption' => [[['_route' => 'listeOption', '_controller' => 'App\\Controller\\Admin\\AdminOptionController::index'], null, ['GET' => 0], null, false, false, null]],
         '/admin/listeOption/create' => [[['_route' => 'admin.option.create', '_controller' => 'App\\Controller\\Admin\\AdminOptionController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/' => [[['_route' => 'Accueil', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::Accueil'], null, null, null, false, false, null]],
+        '/admin/ListeReservation' => [[['_route' => 'ListeResa', '_controller' => 'App\\Controller\\Admin\\AdminReservationController::ListResa'], null, null, null, false, false, null]],
         '/admin/listeseason' => [[['_route' => 'listeSeason', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::listeseason'], null, null, null, false, false, null]],
         '/admin/listeseason/create' => [[['_route' => 'admin.listeseason.create', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::create'], null, null, null, false, false, null]],
-        '/Photos' => [[['_route' => 'Photos', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::Photos'], null, null, null, false, false, null]],
         '/admin/listeslider' => [[['_route' => 'listeSlider', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::listeslider'], null, null, null, false, false, null]],
         '/admin/listeslider/create' => [[['_route' => 'admin.listeslider.create', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::create'], null, null, null, false, false, null]],
-        '/TarifsMobilHome' => [[['_route' => 'TarifsMobilHome', '_controller' => 'App\\Controller\\Admin\\AdminTarifController::Tarifsmobilhome'], null, null, null, false, false, null]],
         '/admin/listetarif' => [[['_route' => 'listeTarif', '_controller' => 'App\\Controller\\Admin\\AdminTarifController::listetarif'], null, null, null, false, false, null]],
         '/admin/listetarif/create' => [[['_route' => 'admin.listetarif.create', '_controller' => 'App\\Controller\\Admin\\AdminTarifController::create'], null, null, null, false, false, null]],
         '/admin/Dashboard' => [[['_route' => 'Dashboard', '_controller' => 'App\\Controller\\Admin\\HomeController::Dashboard'], null, null, null, false, false, null]],
-        '/admin/ListeReservation' => [[['_route' => 'ListeResa', '_controller' => 'App\\Controller\\Admin\\HomeController::ListResa'], null, null, null, false, false, null]],
+        '/admin/Newsletter' => [[['_route' => 'Newsletter', '_controller' => 'App\\Controller\\Admin\\HomeController::newsletter'], null, null, null, false, false, null]],
         '/Proximité' => [[['_route' => 'Proximité', '_controller' => 'App\\Controller\\HomeController::Proximite'], null, null, null, false, false, null]],
         '/Contact' => [[['_route' => 'Contact', '_controller' => 'App\\Controller\\HomeController::Contact'], null, null, null, false, false, null]],
         '/TarifsTente' => [[['_route' => 'TarifsTente', '_controller' => 'App\\Controller\\HomeController::Tariftente'], null, null, null, false, false, null]],
         '/Inscription' => [[['_route' => 'Inscription', '_controller' => 'App\\Controller\\HomeController::Inscription'], null, null, null, false, false, null]],
-        '/admin/Newsletter' => [[['_route' => 'Newsletter', '_controller' => 'App\\Controller\\HomeController::newsletter'], null, null, null, false, false, null]],
+        '/FAQ' => [[['_route' => 'FAQ', '_controller' => 'App\\Controller\\HomeController::Faq'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'Accueil', '_controller' => 'App\\Controller\\HomeController::Accueil'], null, null, null, false, false, null]],
+        '/Photos' => [[['_route' => 'Photos', '_controller' => 'App\\Controller\\HomeController::Photos'], null, null, null, false, false, null]],
+        '/TarifsMobilHome' => [[['_route' => 'TarifsMobilHome', '_controller' => 'App\\Controller\\HomeController::Tarifsmobilhome'], null, null, null, false, false, null]],
         '/Reserver' => [[['_route' => 'Reserver', '_controller' => 'App\\Controller\\SearchController::choixemplacement'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'fos_user_security_login', '_controller' => 'fos_user.security.controller:loginAction'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/login_check' => [[['_route' => 'fos_user_security_check', '_controller' => 'fos_user.security.controller:checkAction'], null, ['POST' => 0], null, false, false, null]],
@@ -71,44 +71,44 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/listeCategory/Article/([^/]++)(*:200)'
                 .'|/a(?'
                     .'|dmin/liste(?'
                         .'|Category/([^/]++)(?'
-                            .'|/edit(*:251)'
-                            .'|(*:259)'
+                            .'|/edit(*:212)'
+                            .'|(*:220)'
                         .')'
                         .'|discount/([^/]++)(?'
-                            .'|(*:288)'
+                            .'|(*:249)'
                         .')'
                         .'|faq/([^/]++)(?'
-                            .'|(*:312)'
+                            .'|(*:273)'
                         .')'
                         .'|media/([^/]++)(?'
-                            .'|(*:338)'
+                            .'|(*:299)'
                         .')'
                         .'|Option/([^/]++)(?'
-                            .'|/edit(*:370)'
-                            .'|(*:378)'
-                        .')'
-                        .'|s(?'
-                            .'|eason/([^/]++)(?'
-                                .'|(*:408)'
-                            .')'
-                            .'|lider/([^/]++)(?'
-                                .'|(*:434)'
-                            .')'
+                            .'|/edit(*:331)'
+                            .'|(*:339)'
                         .')'
                         .'|t(?'
+                            .'|Reservation/([^/]++)(*:372)'
                             .'|arif/([^/]++)(?'
-                                .'|(*:464)'
+                                .'|(*:396)'
                             .')'
-                            .'|Reservation/([^/]++)(*:493)'
                         .')'
-                        .'|Reservation/([^/]++)(*:522)'
+                        .'|Reservation/([^/]++)(*:426)'
+                        .'|s(?'
+                            .'|eason/([^/]++)(?'
+                                .'|(*:455)'
+                            .')'
+                            .'|lider/([^/]++)(?'
+                                .'|(*:481)'
+                            .')'
+                        .')'
                     .')'
-                    .'|nnulerReservation/([^/]++)(*:557)'
+                    .'|nnulerReservation/([^/]++)(*:518)'
                 .')'
+                .'|/listeCategory/Article/([^/]++)(*:558)'
                 .'|/re(?'
                     .'|gister/confirm/([^/]++)(*:595)'
                     .'|setting/reset/([^/]++)(*:625)'
@@ -127,38 +127,38 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        200 => [[['_route' => 'Article', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::Article'], ['id'], null, null, false, true, null]],
-        251 => [[['_route' => 'admin.category.edit', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        259 => [[['_route' => 'admin.category.delete', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        288 => [
+        212 => [[['_route' => 'admin.category.edit', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        220 => [[['_route' => 'admin.category.delete', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        249 => [
             [['_route' => 'admin.discount.edit', '_controller' => 'App\\Controller\\Admin\\AdminDiscountController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [['_route' => 'admin.discount.delete', '_controller' => 'App\\Controller\\Admin\\AdminDiscountController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
         ],
-        312 => [
+        273 => [
             [['_route' => 'admin.faq.edit', '_controller' => 'App\\Controller\\Admin\\AdminFaqController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [['_route' => 'admin.faq.delete', '_controller' => 'App\\Controller\\Admin\\AdminFaqController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
         ],
-        338 => [
+        299 => [
             [['_route' => 'admin.media.delete', '_controller' => 'App\\Controller\\Admin\\AdminMediaController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
             [['_route' => 'admin.media.edit', '_controller' => 'App\\Controller\\Admin\\AdminMediaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
         ],
-        370 => [[['_route' => 'admin.option.edit', '_controller' => 'App\\Controller\\Admin\\AdminOptionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        378 => [[['_route' => 'admin.option.delete', '_controller' => 'App\\Controller\\Admin\\AdminOptionController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        408 => [
-            [['_route' => 'admin.season.edit', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
-            [['_route' => 'admin.season.delete', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
-        ],
-        434 => [
-            [['_route' => 'admin.slider.edit', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
-            [['_route' => 'admin.slider.delete', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
-        ],
-        464 => [
+        331 => [[['_route' => 'admin.option.edit', '_controller' => 'App\\Controller\\Admin\\AdminOptionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        339 => [[['_route' => 'admin.option.delete', '_controller' => 'App\\Controller\\Admin\\AdminOptionController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        372 => [[['_route' => 'admin.resa.edit', '_controller' => 'App\\Controller\\Admin\\AdminReservationController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        396 => [
             [['_route' => 'admin.tarif.edit', '_controller' => 'App\\Controller\\Admin\\AdminTarifController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [['_route' => 'admin.tarif.delete', '_controller' => 'App\\Controller\\Admin\\AdminTarifController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
         ],
-        493 => [[['_route' => 'admin.resa.edit', '_controller' => 'App\\Controller\\Admin\\HomeController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        522 => [[['_route' => 'admin.resa.delete', '_controller' => 'App\\Controller\\Admin\\HomeController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        557 => [[['_route' => 'resa.annulation', '_controller' => 'App\\Controller\\Admin\\HomeController::Annulation'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        426 => [[['_route' => 'admin.resa.delete', '_controller' => 'App\\Controller\\Admin\\AdminReservationController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        455 => [
+            [['_route' => 'admin.season.edit', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
+            [['_route' => 'admin.season.delete', '_controller' => 'App\\Controller\\Admin\\AdminSeasonController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
+        ],
+        481 => [
+            [['_route' => 'admin.slider.edit', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
+            [['_route' => 'admin.slider.delete', '_controller' => 'App\\Controller\\Admin\\AdminSliderController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
+        ],
+        518 => [[['_route' => 'resa.annulation', '_controller' => 'App\\Controller\\HomeController::Annulation'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        558 => [[['_route' => 'Article', '_controller' => 'App\\Controller\\HomeController::Article'], ['id'], null, null, false, true, null]],
         595 => [[['_route' => 'fos_user_registration_confirm', '_controller' => 'fos_user.registration.controller:confirmAction'], ['token'], ['GET' => 0], null, false, true, null]],
         625 => [[['_route' => 'fos_user_resetting_reset', '_controller' => 'fos_user.resetting.controller:resetAction'], ['token'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         688 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],

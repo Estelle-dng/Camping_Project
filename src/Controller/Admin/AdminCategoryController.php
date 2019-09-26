@@ -5,11 +5,13 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 class AdminCategoryController extends AbstractController
@@ -21,17 +23,6 @@ class AdminCategoryController extends AbstractController
         $this->em=$em;
     }
 
-
-    /**
-     * @Route ("listeCategory/Article/{id}", name="Article")
-     */
-    public function Article($id)
-    {
-        $spot = $this->repository->find($id);
-        return $this->render('reservation/article.html.twig',[
-            'spot' => $spot
-        ]);
-    }
 
     /**
      * @Route("admin/listeCategory", name="listeCategory", methods={"GET"})

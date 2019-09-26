@@ -7,7 +7,6 @@ namespace App\Controller\Admin;
 use App\Entity\Faq;
 use App\Form\FaqType;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\FaqRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -87,14 +86,4 @@ class AdminFaqController extends AbstractController
         return $this->redirectToRoute('listeFAQ');
     }
 
-
-    /**
-     * @Route ("/FAQ", name="FAQ")
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function Faq()
-    {
-        $faqs = $this->repository->findAll();
-        return $this->render('vitrine/faq.html.twig', compact('faqs'));
-    }
 }

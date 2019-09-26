@@ -111,7 +111,7 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">/Applications/MAMP/tmp/php</parameter>
+    <parameter key="session.save_path"></parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
@@ -592,6 +592,14 @@
         <argument type="service" id=".service_locator.CDOTD6..App\Controller\Admin\AdminOptionController"/>
       </call>
     </service>
+    <service id="App\Controller\Admin\AdminReservationController" class="App\Controller\Admin\AdminReservationController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.CDOTD6..App\Controller\Admin\AdminReservationController"/>
+      </call>
+    </service>
     <service id="App\Controller\Admin\AdminSeasonController" class="App\Controller\Admin\AdminSeasonController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -622,7 +630,6 @@
     <service id="App\Controller\Admin\HomeController" class="App\Controller\Admin\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.CDOTD6..App\Controller\Admin\HomeController"/>
       </call>
@@ -1323,7 +1330,7 @@
       <deprecated>The "%service_id%" service is deprecated since Symfony 4.2, use "identity_translator" instead.</deprecated>
     </service>
     <service id=".1_NativeFileSessionHandler~cNDz.4o" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>/Applications/MAMP/tmp/php</argument>
+      <argument></argument>
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -2799,6 +2806,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -6506,6 +6521,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminOptionController" class="App\Controller\Admin\AdminOptionController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminOptionController" class="App\Controller\Admin\AdminOptionController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminOptionController" class="App\Controller\Admin\AdminOptionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminReservationController" class="App\Controller\Admin\AdminReservationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminReservationController" class="App\Controller\Admin\AdminReservationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\AdminReservationController" class="App\Controller\Admin\AdminReservationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminSeasonController" class="App\Controller\Admin\AdminSeasonController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminSeasonController" class="App\Controller\Admin\AdminSeasonController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminSeasonController" class="App\Controller\Admin\AdminSeasonController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6799,6 +6817,18 @@
         <argument key="option" type="service" id=".errored..service_locator.rq32Uw1.App\Entity\Option"/>
       </argument>
     </service>
+    <service id=".service_locator._yUaljH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reservationRepository" type="service" id="App\Repository\ReservationRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.eH1R0Zw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reservation" type="service" id=".errored..service_locator.eH1R0Zw.App\Entity\Reservation"/>
+      </argument>
+    </service>
     <service id=".service_locator.ADeF0mv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6817,16 +6847,10 @@
         <argument key="tarif" type="service" id=".errored..service_locator.GEXp2bG.App\Entity\CategoryHasSeason"/>
       </argument>
     </service>
-    <service id=".service_locator._yUaljH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.JkextnA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="reservationRepository" type="service" id="App\Repository\ReservationRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.eH1R0Zw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="reservation" type="service" id=".errored..service_locator.eH1R0Zw.App\Entity\Reservation"/>
+        <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
     <service id=".service_locator.QdSwBri" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6835,13 +6859,20 @@
         <argument key="notification" type="service" id="App\Notification\ContactNotification"/>
       </argument>
     </service>
-    <service id=".service_locator.JkextnA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Txvqv4R" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.W8xiHw1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.xJY1n8m" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="reservation" type="service" id=".errored..service_locator.xJY1n8m.App\Entity\Reservation"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ZLOZBHt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AdminCategoryController::delete" type="service" id=".service_locator..JzDQIR"/>
@@ -6856,18 +6887,23 @@
         <argument key="App\Controller\Admin\AdminOptionController::delete" type="service" id=".service_locator.rq32Uw1"/>
         <argument key="App\Controller\Admin\AdminOptionController::edit" type="service" id=".service_locator.rq32Uw1"/>
         <argument key="App\Controller\Admin\AdminOptionController::index" type="service" id=".service_locator.WStrAY3"/>
+        <argument key="App\Controller\Admin\AdminReservationController::ListResa" type="service" id=".service_locator._yUaljH"/>
+        <argument key="App\Controller\Admin\AdminReservationController::delete" type="service" id=".service_locator.eH1R0Zw"/>
+        <argument key="App\Controller\Admin\AdminReservationController::edit" type="service" id=".service_locator.eH1R0Zw"/>
         <argument key="App\Controller\Admin\AdminSeasonController::delete" type="service" id=".service_locator.ADeF0mv"/>
         <argument key="App\Controller\Admin\AdminSeasonController::edit" type="service" id=".service_locator.ADeF0mv"/>
         <argument key="App\Controller\Admin\AdminSliderController::delete" type="service" id=".service_locator.Pvx5wm_"/>
         <argument key="App\Controller\Admin\AdminSliderController::edit" type="service" id=".service_locator.Pvx5wm_"/>
         <argument key="App\Controller\Admin\AdminTarifController::delete" type="service" id=".service_locator.GEXp2bG"/>
         <argument key="App\Controller\Admin\AdminTarifController::edit" type="service" id=".service_locator.GEXp2bG"/>
-        <argument key="App\Controller\Admin\HomeController::Annulation" type="service" id=".service_locator.eH1R0Zw"/>
-        <argument key="App\Controller\Admin\HomeController::ListResa" type="service" id=".service_locator._yUaljH"/>
-        <argument key="App\Controller\Admin\HomeController::delete" type="service" id=".service_locator.eH1R0Zw"/>
-        <argument key="App\Controller\Admin\HomeController::edit" type="service" id=".service_locator.eH1R0Zw"/>
+        <argument key="App\Controller\Admin\HomeController::newsletter" type="service" id=".service_locator.JkextnA"/>
+        <argument key="App\Controller\HomeController::Accueil" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\HomeController::Annulation" type="service" id=".service_locator.xJY1n8m"/>
+        <argument key="App\Controller\HomeController::Article" type="service" id=".service_locator.Txvqv4R"/>
         <argument key="App\Controller\HomeController::Contact" type="service" id=".service_locator.QdSwBri"/>
-        <argument key="App\Controller\HomeController::newsletter" type="service" id=".service_locator.JkextnA"/>
+        <argument key="App\Controller\HomeController::Faq" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\HomeController::Photos" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\HomeController::Tarifsmobilhome" type="service" id=".service_locator.Txvqv4R"/>
         <argument key="App\Controller\SearchController::choixemplacement" type="service" id=".service_locator.a.laFVK"/>
         <argument key="App\Controller\Admin\AdminCategoryController:delete" type="service" id=".service_locator..JzDQIR"/>
         <argument key="App\Controller\Admin\AdminCategoryController:edit" type="service" id=".service_locator..JzDQIR"/>
@@ -6881,18 +6917,23 @@
         <argument key="App\Controller\Admin\AdminOptionController:delete" type="service" id=".service_locator.rq32Uw1"/>
         <argument key="App\Controller\Admin\AdminOptionController:edit" type="service" id=".service_locator.rq32Uw1"/>
         <argument key="App\Controller\Admin\AdminOptionController:index" type="service" id=".service_locator.WStrAY3"/>
+        <argument key="App\Controller\Admin\AdminReservationController:ListResa" type="service" id=".service_locator._yUaljH"/>
+        <argument key="App\Controller\Admin\AdminReservationController:delete" type="service" id=".service_locator.eH1R0Zw"/>
+        <argument key="App\Controller\Admin\AdminReservationController:edit" type="service" id=".service_locator.eH1R0Zw"/>
         <argument key="App\Controller\Admin\AdminSeasonController:delete" type="service" id=".service_locator.ADeF0mv"/>
         <argument key="App\Controller\Admin\AdminSeasonController:edit" type="service" id=".service_locator.ADeF0mv"/>
         <argument key="App\Controller\Admin\AdminSliderController:delete" type="service" id=".service_locator.Pvx5wm_"/>
         <argument key="App\Controller\Admin\AdminSliderController:edit" type="service" id=".service_locator.Pvx5wm_"/>
         <argument key="App\Controller\Admin\AdminTarifController:delete" type="service" id=".service_locator.GEXp2bG"/>
         <argument key="App\Controller\Admin\AdminTarifController:edit" type="service" id=".service_locator.GEXp2bG"/>
-        <argument key="App\Controller\Admin\HomeController:Annulation" type="service" id=".service_locator.eH1R0Zw"/>
-        <argument key="App\Controller\Admin\HomeController:ListResa" type="service" id=".service_locator._yUaljH"/>
-        <argument key="App\Controller\Admin\HomeController:delete" type="service" id=".service_locator.eH1R0Zw"/>
-        <argument key="App\Controller\Admin\HomeController:edit" type="service" id=".service_locator.eH1R0Zw"/>
+        <argument key="App\Controller\Admin\HomeController:newsletter" type="service" id=".service_locator.JkextnA"/>
+        <argument key="App\Controller\HomeController:Accueil" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\HomeController:Annulation" type="service" id=".service_locator.xJY1n8m"/>
+        <argument key="App\Controller\HomeController:Article" type="service" id=".service_locator.Txvqv4R"/>
         <argument key="App\Controller\HomeController:Contact" type="service" id=".service_locator.QdSwBri"/>
-        <argument key="App\Controller\HomeController:newsletter" type="service" id=".service_locator.JkextnA"/>
+        <argument key="App\Controller\HomeController:Faq" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\HomeController:Photos" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\HomeController:Tarifsmobilhome" type="service" id=".service_locator.Txvqv4R"/>
         <argument key="App\Controller\SearchController:choixemplacement" type="service" id=".service_locator.a.laFVK"/>
       </argument>
     </service>
@@ -7277,6 +7318,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CDOTD6." method="withContext"/>
     </service>
+    <service id=".service_locator.CDOTD6..App\Controller\Admin\AdminReservationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\AdminReservationController"/>
+      <argument>App\Controller\Admin\AdminReservationController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.CDOTD6." method="withContext"/>
+    </service>
     <service id=".service_locator.CDOTD6..App\Controller\Admin\AdminSeasonController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Admin\AdminSeasonController"/>
       <argument>App\Controller\Admin\AdminSeasonController</argument>
@@ -7406,22 +7453,23 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.W8xiHw1"/>
+      <argument type="service" id=".service_locator.ZLOZBHt"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.W8xiHw1"/>
+      <argument type="service" id=".service_locator.ZLOZBHt"/>
     </service>
     <service id=".errored..service_locator..JzDQIR.App\Entity\Category" class="App\Entity\Category"/>
     <service id=".errored..service_locator.3nMqkMP.App\Entity\Discount" class="App\Entity\Discount"/>
     <service id=".errored..service_locator.j9U_bzc.App\Entity\Faq" class="App\Entity\Faq"/>
     <service id=".errored..service_locator.HjgqwGL.App\Entity\Media" class="App\Entity\Media"/>
     <service id=".errored..service_locator.rq32Uw1.App\Entity\Option" class="App\Entity\Option"/>
+    <service id=".errored..service_locator.eH1R0Zw.App\Entity\Reservation" class="App\Entity\Reservation"/>
     <service id=".errored..service_locator.ADeF0mv.App\Entity\Season" class="App\Entity\Season"/>
     <service id=".errored..service_locator.Pvx5wm_.App\Entity\Slider" class="App\Entity\Slider"/>
     <service id=".errored..service_locator.GEXp2bG.App\Entity\CategoryHasSeason" class="App\Entity\CategoryHasSeason"/>
-    <service id=".errored..service_locator.eH1R0Zw.App\Entity\Reservation" class="App\Entity\Reservation"/>
+    <service id=".errored..service_locator.xJY1n8m.App\Entity\Reservation" class="App\Entity\Reservation"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.XdMKRG_"/>
       <argument type="collection">
@@ -7838,7 +7886,7 @@
     <service id="liip_imagine.controller" alias="Liip\ImagineBundle\Controller\ImagineController" public="true"/>
     <service id="liip_imagine" alias="liip_imagine.gd"/>
     <service id="Liip\ImagineBundle\Imagine\Cache\CacheManager" alias="liip_imagine.cache.manager" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.W8xiHw1"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ZLOZBHt"/>
     <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.delegating" public="false"/>
     <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.delegating" public="false"/>
     <service id="twig.loader" alias="twig.loader.filesystem"/>

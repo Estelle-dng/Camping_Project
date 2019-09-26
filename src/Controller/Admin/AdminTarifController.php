@@ -25,17 +25,6 @@ class AdminTarifController extends AbstractController
     }
 
     /**
-     * @Route ("TarifsMobilHome", name="TarifsMobilHome")
-     */
-    public function Tarifsmobilhome()
-    {
-        $tarifs = $this->repository->findAll();
-        return $this->render('vitrine/tarifsmobilhome.html.twig',[
-            "tarifs" => $tarifs
-        ]);
-    }
-
-    /**
      * @Route ("/admin/listetarif", name="listeTarif")
      */
     public function listetarif(){

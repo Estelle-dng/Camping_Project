@@ -7,7 +7,6 @@ use App\Entity\Season;
 use App\Form\SeasonType;
 use App\Repository\SeasonRepository;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,19 +21,6 @@ class AdminSeasonController extends AbstractController
     {
         $this->repository = $repository;
         $this->em = $em;
-    }
-
-    /**
-     * @Route ("/", name="Accueil")
-     */
-
-    public function Accueil()
-    {
-        $season = $this->repository->findById(1);
-
-        return $this->render('vitrine/accueil.html.twig', [
-            'seasons' => $season
-        ]);
     }
 
 

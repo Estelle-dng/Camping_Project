@@ -8,7 +8,6 @@ use App\Form\MediaType;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\MediaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 class AdminMediaController extends AbstractController
