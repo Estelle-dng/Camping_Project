@@ -24,6 +24,7 @@
                         {{form_row(form.email)}}
                         {{ form_row(form.message, { 'attr': {'rows': '10'} }) }}
                         <div class="form-group">
+                            <div class="g-recaptcha pb-3" data-sitekey="6LeGp7IZAAAAAHz4Ky53piI-_5bbPa6aybhyFx8w"></div>
                             <button class="btn btn-success">Envoyer</button>
                         </div>
                         {{ form_end(form) }}
@@ -38,3 +39,5 @@
             </div>
         </div>
     {% endblock %}
+
+{% block javascripts %}<script src="https://www.google.com/recaptcha/api.js" async defer></script>{% endblock %}

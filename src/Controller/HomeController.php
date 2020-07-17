@@ -36,7 +36,8 @@ class HomeController extends AbstractController
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && isset($_POST['g-recaptcha-response'])) {
+            if ($this->grecaptcha()->success == true)
             $notification->notify($contact);
             $this->addFlash('success', 'Mail envoyé avec succès');
             return $this->redirectToRoute('Contact');
@@ -84,5 +85,18 @@ class HomeController extends AbstractController
     return $this->render('admin/newsletter.html.twig',[
         "inscrits" => $userRepository->findByNewsletter(1)
     ]);
+    }
+
+    private function grecaptcha()
+    {
+        //  Je construis le POST request pour le recaptcha:
+        $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+        $recaptcha_secret = '6LeGp7IZAAAAABc25pah6RacbKP4eaKvM9dltOhM';
+        $recaptcha_response = $_POST['g-recaptcha-response'];
+
+        // Je decode le POST request:
+        $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+        $recaptcha = json_decode($recaptcha);
+        return $recaptcha;
     }
 }
