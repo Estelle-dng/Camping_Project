@@ -1,14 +1,14 @@
 /* HEADER - HEADER - HEADER - HEADER */
 
 .headerAccueil{ /* IMAGE DE FOND DU HEADER*/
-    background-image: url("../../img/emplacement_header-01.png");
+    background-image: url("../../img/camping-nature.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
 main{ /* BG DU MAIN AVEC LES CARRÉS ET L'IMAGE */
-    background-image: url("../../img/bg_main-01-01.png");
+    background-image: url("../../img/bg_main-01-01.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

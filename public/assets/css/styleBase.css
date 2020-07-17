@@ -10,13 +10,32 @@ body{box-sizing:border-box; /* Évite les espaces natifs de la page */
 
 a{color: white;}
 
+#cookieChoiceInfo{padding-bottom: 10px !important;}
+#cookieChoiceInfo a {
+    background-color: white;
+    border-radius: 5px;
+    color: #0A5524 !important;
+    padding: 3px;
+}
+#cookieChoiceInfo a:last-child {
+    background-color: #4d9b5f;
+    border-radius: 5px;
+    color: white !important;
+    padding: 3px;
+}
+#cookieChoiceInfo span {
+    display: block;
+    padding: 5px;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
 /* FIN DU GLOBAL CSS*/
 
 
 /* HEADER */
 
 .header{ /* IMAGE DE FOND DU HEADER*/
-    background-image: url("../img/globalheader-01.png");
+    background-image: url("../img/camping-nature.jpg");
     background-repeat: no-repeat;
     background-position: bottom 0 right 0;
     background-size: cover;
@@ -58,10 +77,14 @@ a{color: white;}
 
 @media screen and (min-width: 768px){  /* BG NAVBAR DÉGRADÉ EN NORMAL */
     .gradientnavbar{
-        background: rgb(108 ,167, 89);
+        /*background: rgb(108 ,167, 89);
         background: linear-gradient(0deg, rgba(108 ,167, 89, 0) 0%,
-        rgba(108 ,167, 89, 0.25) 22%, rgba(108 ,167, 89, 0.35) 46%,
-        rgba(108 ,167, 89, 0.5) 100%);
+        rgba(108, 167, 89, 0.25) 22%, rgba(108 ,167, 89, 0.35) 46%,
+        rgba(108, 167, 89, 0.5) 100%);*/
+
+
+        background: rgb(12,98,42);
+        background: linear-gradient(180deg, rgba(12,98,42,0.5970763305322129) 0%, rgba(8,69,29,0.5018382352941176) 25%, rgba(5,45,19,0.4009978991596639) 50%, rgba(2,19,8,0.30015756302521013) 75%, rgba(0,0,0,0) 100%);
     }
 }
 /* FIN BACKGROUND DE LA NAVBAR*/
@@ -241,7 +264,7 @@ footer{ /* MET L'IMAGE DE L'ANGLE VERT EN BACKGROUND */
 
 .linkbot:hover{color: white;} /* LIENS DU FOOTER */
 
-.bigtitle{color: darkgreen;} /* TITRES DES ARTICLES */
+.bigtitle{color: rgba(240, 6, 64, 0.06);} /* TITRES DES ARTICLES */
 /* FIN DU FOOTER */
 
 

@@ -24,6 +24,9 @@
     <meta name="author" content="Estelle DENAGE">
     <meta name="description" content="Site du Camping de la Jamonière en Vendée à Mervent">
 
+    {# MON COOKIE JS#}
+    <script type="text/javascript" src="../cookiechoices.js"></script>
+
     {% block stylesheets %}{% endblock %}
 </head>
 
@@ -204,6 +207,9 @@
 <script crossorigin="anonymous"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="http://camping-la-jamoniere.site/cookiechoices.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function(event){cookieChoices.showCookieConsentBar('Ce site utilise des cookies pour vous offrir le meilleur service. En poursuivant votre navigation, vous acceptez l’utilisation des cookies.' , 'J’accepte', 'En savoir plus', 'http://camping-la-jamoniere.site/mentions-legales/');});</script>
+
 {% block javascripts %}{% endblock %}
 {#Jquery#}
 
