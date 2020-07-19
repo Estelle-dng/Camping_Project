@@ -62,6 +62,7 @@ return [
     'TarifsTente' => [[], ['_controller' => 'App\\Controller\\HomeController::Tariftente'], [], [['text', '/TarifsTente']], [], []],
     'Inscription' => [[], ['_controller' => 'App\\Controller\\HomeController::Inscription'], [], [['text', '/Inscription']], [], []],
     'Newsletter' => [[], ['_controller' => 'App\\Controller\\HomeController::newsletter'], [], [['text', '/admin/Newsletter']], [], []],
+    'mentions-legales' => [[], ['_controller' => 'App\\Controller\\HomeController::Mentionslegales'], [], [['text', '/mentions-legales']], [], []],
     'Reserver' => [[], ['_controller' => 'App\\Controller\\SearchController::choixemplacement'], [], [['text', '/Reserver']], [], []],
     'fos_user_security_login' => [[], ['_controller' => 'fos_user.security.controller:loginAction'], [], [['text', '/login']], [], []],
     'fos_user_security_check' => [[], ['_controller' => 'fos_user.security.controller:checkAction'], [], [['text', '/login_check']], [], []],

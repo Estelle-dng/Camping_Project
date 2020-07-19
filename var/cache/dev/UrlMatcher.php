@@ -40,6 +40,7 @@ return [
         '/TarifsTente' => [[['_route' => 'TarifsTente', '_controller' => 'App\\Controller\\HomeController::Tariftente'], null, null, null, false, false, null]],
         '/Inscription' => [[['_route' => 'Inscription', '_controller' => 'App\\Controller\\HomeController::Inscription'], null, null, null, false, false, null]],
         '/admin/Newsletter' => [[['_route' => 'Newsletter', '_controller' => 'App\\Controller\\HomeController::newsletter'], null, null, null, false, false, null]],
+        '/mentions-legales' => [[['_route' => 'mentions-legales', '_controller' => 'App\\Controller\\HomeController::Mentionslegales'], null, null, null, false, false, null]],
         '/Reserver' => [[['_route' => 'Reserver', '_controller' => 'App\\Controller\\SearchController::choixemplacement'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'fos_user_security_login', '_controller' => 'fos_user.security.controller:loginAction'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/login_check' => [[['_route' => 'fos_user_security_check', '_controller' => 'fos_user.security.controller:checkAction'], null, ['POST' => 0], null, false, false, null]],

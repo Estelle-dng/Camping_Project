@@ -61,7 +61,7 @@ class HomeController extends AbstractController
      */
     public function Inscription(Request $request)
     {
-        $panier = new CommandDetails();
+        /*$panier = new CommandDetails();
         $form = $this->createForm(CommandDetailsType::class, $panier);
         $form->handleRequest($request);
 
@@ -70,10 +70,10 @@ class HomeController extends AbstractController
             $this->em->flush();
 
             return $this->redirectToRoute('profile');
-        }
+        }*/
         return $this->render('reservation/inscription.html.twig', [
-            'panier' => $panier,
-            'form' => $form->createView(), /* On crée la vue du formulaire que l'on nomme form*/
+            /*'panier' => $panier,
+            'form' => $form->createView(),*/ /* On crée la vue du formulaire que l'on nomme form*/
         ]);
     }
 
@@ -98,5 +98,13 @@ class HomeController extends AbstractController
         $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
         $recaptcha = json_decode($recaptcha);
         return $recaptcha;
+    }
+
+    /**
+     * @Route ("/mentions-legales", name="mentions-legales")
+     */
+    public function Mentionslegales()
+    {
+        return $this->render('vitrine/mentionslegales.html.twig');
     }
 }
