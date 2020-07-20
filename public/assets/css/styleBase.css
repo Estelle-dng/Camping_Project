@@ -91,8 +91,7 @@ a{color: white;}
 
 
         background: rgb(12,98,42);
-        background: linear-gradient(180deg, rgba(12,98,42,0.5970763305322129) 0%, rgba(8,69,29,0.5018382352941176) 25%, rgba(5,45,19,0.4009978991596639) 50%, rgba(2,19,8,0.30015756302521013) 75%, rgba(0,0,0,0) 100%);
-    }
+        background: linear-gradient(180deg, rgba(55, 60, 57, 0.6) 0%, rgba(77, 82, 78, 0.5) 25%, rgba(102, 109, 105, 0.4) 50%, rgba(115, 123, 118, 0.3) 75%, rgba(0,0,0,0) 100%);    }
 }
 /* FIN BACKGROUND DE LA NAVBAR*/
 
